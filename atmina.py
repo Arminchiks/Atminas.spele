@@ -1,3 +1,4 @@
+from email.mime import image
 from tkinter import*#importē tkinter bibliotēku
 from PIL import ImageTk, Image
 import random
@@ -5,20 +6,22 @@ from tkinter import messagebox
 
 gameWindow=Tk()
 gameWindow.title("Vienādie attēli")
+bgImg=ImageTk.PhotoImage(Image.open("7.png"))
+#.resize((200.200),Image.ANTIALIAS)
 
 #Izveido pogas - jābūt pāra skaitlim
-btn0=Button(width=20,height=10) #sāk no 0, jo sasaistās ar saraksta elementu indeksāciju
-btn1=Button(width=20,height=10)
-btn2=Button(width=20,height=10)
-btn3=Button(width=20,height=10)
-btn4=Button(width=20,height=10)
-btn5=Button(width=20,height=10)
-btn6=Button(width=20,height=10)
-btn7=Button(width=20,height=10)
-btn8=Button(width=20,height=10)
-btn9=Button(width=20,height=10)
-btn10=Button(width=20,height=10)
-btn11=Button(width=20,height=10)
+btn0=Button(width=200,height=300,image=bgImg) #sāk no 0, jo sasaistās ar saraksta elementu indeksāciju
+btn1=Button(width=200,height=300,image=bgImg)
+btn2=Button(width=200,height=300,image=bgImg)
+btn3=Button(width=200,height=300,image=bgImg)
+btn4=Button(width=200,height=300,image=bgImg)
+btn5=Button(width=200,height=300,image=bgImg)
+btn6=Button(width=200,height=300,image=bgImg)
+btn7=Button(width=200,height=300,image=bgImg)
+btn8=Button(width=200,height=300,image=bgImg)
+btn9=Button(width=200,height=300,image=bgImg)
+btn10=Button(width=200,height=300,image=bgImg)
+btn11=Button(width=200,height=300,image=bgImg)
 
 #kopē pogas, maina skaitli
 
@@ -35,6 +38,17 @@ btn8.grid(row=1,column=2)
 btn9.grid(row=1,column=3)
 btn10.grid(row=1,column=4)
 btn11.grid(row=1,column=5)
+
+
+
+myImg1=ImageTk.PhotoImage(Image.open("1.png"))
+myImg2=ImageTk.PhotoImage(Image.open("2.png"))
+myImg3=ImageTk.PhotoImage(Image.open("3.png"))
+myImg4=ImageTk.PhotoImage(Image.open("4.png"))
+myImg5=ImageTk.PhotoImage(Image.open("5.png"))
+myImg5=ImageTk.PhotoImage(Image.open("6.png"))
+
+
 
 
 gameWindow.mainloop()

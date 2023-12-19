@@ -46,10 +46,10 @@ myImg2=ImageTk.PhotoImage(Image.open("2.png"))
 myImg3=ImageTk.PhotoImage(Image.open("3.png"))
 myImg4=ImageTk.PhotoImage(Image.open("4.png"))
 myImg5=ImageTk.PhotoImage(Image.open("5.png"))
-myImg5=ImageTk.PhotoImage(Image.open("6.png"))
+myImg6=ImageTk.PhotoImage(Image.open("6.png"))
 
 
-ImageList=[myImg1,myImg1,myImg2,myImg2,myImg3,myImg3,myImg4,myImg4,myImg5,myImg5]#attelus ievieto masiivaa
+ImageList=[myImg1,myImg1,myImg2,myImg2,myImg3,myImg3,myImg4,myImg4,myImg5,myImg5, myImg6, myImg6]#attelus ievieto masiivaa
 
 random.shuffle(ImageList)#sajauc attelus
 
@@ -62,7 +62,7 @@ answer_dict={}#ar iekavam nezinu
 def btnClick(btn,number):
     global count, correctAnswers,answers,answer_dict
     if btn["image"]=="pyimage1" and count<2:#peec sisteemas nnosauc saadi
-        btn["image"]==ImageList[number]
+        btn["image"]=ImageList[number]
         count+=1
         answers.append(number)#bez s iespejams
         answer_dict[btn]=ImageList[number]#iespejams kantainaas
@@ -70,7 +70,6 @@ def btnClick(btn,number):
         if ImageList[answers[0]]==ImageList[answers[1]]:#salidzina attelus
             for key in answer_dict:
                 key["state"]=DISABLED
-            correctAnswers+=2
             if correctAnswers==2:
                 messagebox.showinfo("Vienadi attēli")
 

@@ -1,3 +1,4 @@
+from cgitb import enable
 from email.mime import image
 from tkinter import*#importē tkinter bibliotēku
 from PIL import ImageTk, Image
@@ -70,16 +71,21 @@ def btnClick(btn,number):
         if ImageList[answers[0]]==ImageList[answers[1]]:#salidzina attelus
             for key in answer_dict:
                 key["state"]=DISABLED
+            correctAnswers+=2
             if correctAnswers==2:
-                messagebox.showinfo("Vienadi attēli")
 
-            else:
-                messagebox.showinfo("Nav vienadi atteli")
-                for key in answer_dict:
-                    key["image"]="pyimage1"
-                count = 0
-                answers=[]
-                answer_dict={}
+                messagebox.showinfo("Vienadi attēli")
+                correctAnswers=0
+
+
+        else:
+            messagebox.showinfo("Nav vienadi atteli")
+            for key in answer_dict:
+                key["image"]="pyimage1"
+        count = 0
+        answers=[]
+        answer_dict={}
+                
 
     return 0
 

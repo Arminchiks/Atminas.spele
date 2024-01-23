@@ -5,17 +5,17 @@ from PIL import ImageTk, Image
 import random
 from tkinter import messagebox
 
-gameWindow=Tk()
-gameWindow.title("Vienādie attēli")
-bgImg=ImageTk.PhotoImage(Image.open("7.png"))
+gameWindow=Tk()#Izveidoju lodziņu   
+gameWindow.title("Vienādie attēli") #lodziņa nosaukums
+bgImg=ImageTk.PhotoImage(Image.open("7.png"))#Galvenā bilde, kas būs virsū kartiņām pirms tiek attaisītas
 #.resize((200.200),Image.ANTIALIAS)
 galvenaIzvelne=Menu(gameWindow)
 gameWindow.config(menu=galvenaIzvelne)
 
-def infoLogs():
-    gameWindow=Toplevel()
-    gameWindow.title("Par programmu")
-    gameWindow.geometry('1055x200')
+def infoLogs():#Izveido augšējā lodziņā informāciju par spēli
+    gameWindow=Toplevel() 
+    gameWindow.title("Par programmu")#Nosaukums info programmai
+    gameWindow.geometry('1055x200')#Lielums info programmas tabulai
     desc=Label(gameWindow,text="Spēles mērķis ir iegūt vienādas bildes zem apslēptiem lodziņiem.",font='Helvita 26 bold')
     desc.grid(row=0,column=0)
     desc=Label(gameWindow,text="Uzspiežot uz jebkuru tu izvēlies bildi un tad tev ir jāuzspiež uz citu lodziņu,",font='Helvita 16')
@@ -24,7 +24,8 @@ def infoLogs():
     desc.grid(row=2,column=0)
     desc=Label(gameWindow,text="ja bildes sakritīs, tad bildes paliks atvērtas un būs jāizvēlas jaunas, līdz attaisīsi visas bildītes",font='Helvita 16')
     desc.grid(row=3,column=0)
-def reset():
+    #visi desc=Label un desc.grid Ir teksti un to novietojums
+def reset():#Funckija, kur spēle restartējas
     global count,correctAnswers,answers,answer_dict, answercount
     btn0.config(state=NORMAL)
     btn1.config(state=NORMAL)
@@ -59,7 +60,7 @@ def reset():
     answercount=0
     return 0
 
-opcijas=Menu(galvenaIzvelne,tearoff=False)
+opcijas=Menu(galvenaIzvelne,tearoff=False)#Opcijas augšējā tabulā
 galvenaIzvelne.add_cascade(label='Opcijas',menu=opcijas)
 
 opcijas.add_command(label='Jauna spēle',command=reset)
@@ -141,7 +142,7 @@ def btnClick(btn,number):
                 correctAnswers=0
                 answercount+=1
             if answercount==6:
-                messagebox.showinfo("Tu uzvarēji")
+                messagebox.showinfo("Tu uzvarēji",'Apsveicu, tu uzvarēji')
                 reset()
 
 

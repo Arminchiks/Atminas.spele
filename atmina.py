@@ -25,7 +25,7 @@ def infoLogs():
     desc=Label(gameWindow,text="ja bildes sakritīs, tad bildes paliks atvērtas un būs jāizvēlas jaunas, līdz attaisīsi visas bildītes",font='Helvita 16')
     desc.grid(row=3,column=0)
 def reset():
-    global count,correctAnswers,answers,answer_dict
+    global count,correctAnswers,answers,answer_dict, answercount
     btn0.config(state=NORMAL)
     btn1.config(state=NORMAL)
     btn2.config(state=NORMAL)
@@ -56,6 +56,7 @@ def reset():
     answer_dict={}
     count=0
     correctAnswers=0
+    answercount=0
     return 0
 
 opcijas=Menu(galvenaIzvelne,tearoff=False)
@@ -121,9 +122,9 @@ count=0
 correctAnswers=0
 answers=[]
 answer_dict={}#ar iekavam nezinu
-
+answercount=0
 def btnClick(btn,number):
-    global count, correctAnswers,answers,answer_dict
+    global count, correctAnswers,answers,answer_dict, answercount
     if btn["image"]=="pyimage1" and count<2:#peec sisteemas nnosauc saadi
         btn["image"]=ImageList[number]
         count+=1
@@ -138,6 +139,10 @@ def btnClick(btn,number):
 
                 messagebox.showinfo("Vienādi attēli",'Tu uzminēji')
                 correctAnswers=0
+                answercount+=1
+            if answercount==6:
+                messagebox.showinfo("Tu uzvarēji")
+                reset()
 
 
         else:

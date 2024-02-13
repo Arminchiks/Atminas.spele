@@ -129,8 +129,8 @@ def btnClick(btn,number):
     if btn["image"]=="pyimage1" and count<2:#peec sisteemas nnosauc saadi
         btn["image"]=ImageList[number]
         count+=1
-        answers.append(number)#bez s iespejams
-        answer_dict[btn]=ImageList[number]#iespejams kantainaas
+        answers.append(number)
+        answer_dict[btn]=ImageList[number]
     if len(answers)==2:#ja atveras divas kartites
         if ImageList[answers[0]]==ImageList[answers[1]]:#salidzina attelus
             for key in answer_dict:
